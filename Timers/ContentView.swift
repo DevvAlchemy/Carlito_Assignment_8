@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showTimer = false
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        if showTimer {
+            TimerView()
+        } else {
+            WelcomeView(showTimer: $showTimer)
         }
-        .padding()
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
